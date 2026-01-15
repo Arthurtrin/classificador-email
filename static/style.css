@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    background: linear-gradient(135deg, #23205c, #3f41b6);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -99,7 +99,7 @@ input[type="file"]:focus {
 .btn-primary {
     width: 100%;
     padding: 14px;
-    background: #6366f1;
+    background: #101286;
     color: #ffffff;
     border: none;
     border-radius: 14px;
@@ -107,10 +107,6 @@ input[type="file"]:focus {
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
-}
-
-.btn-primary:hover {
-    background: #4f46e5;
 }
 
 .resultado {
@@ -168,4 +164,38 @@ input[type="file"]:focus {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Esconde o input original */
+.custom-file-input {
+    display: none;
+}
+
+/* Botão estilizado */
+.custom-file-label {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #6366f1; /* mesmo tom do botão principal */
+    color: #fff;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    text-align: center;
+}
+
+.custom-file-label:hover {
+    background-color: #4f46e5; /* hover mais escuro */
+}
+
+.custom-file-label:active {
+    transform: scale(0.97); /* efeito de clique */
+}
+
+/* Nome do arquivo */
+#file-name {
+    margin-left: 12px;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #6b7280;
 }

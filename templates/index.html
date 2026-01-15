@@ -46,16 +46,23 @@
             <span>ou</span>
         </div>
 
-        <!-- Campo para envio de arquivo -->
+        <!-- Campo para envio de arquivo estilizado -->
         <div class="field">
-            <label for="email_file">Enviar arquivo (.txt ou .pdf)</label>
+            <!-- Label estilizado como botão -->
+            <label for="email_file" class="custom-file-label">
+                📎 Escolher arquivo (.txt ou .pdf)
+            </label>
             <input
                 type="file"
                 id="email_file"
                 name="email_file"
                 accept=".txt,.pdf"
+                class="custom-file-input"
             >
+            <!-- Exibe o nome do arquivo selecionado -->
+            <span id="file-name">Nenhum arquivo selecionado</span>
         </div>
+
 
         <!-- Botão de submissão do formulário -->
         <button type="submit" class="btn-primary">
@@ -97,6 +104,19 @@
     {% endif %}
 
 </main>
+
+<script>
+const fileInput = document.getElementById('email_file');
+const fileName = document.getElementById('file-name');
+
+fileInput.addEventListener('change', () => {
+    if (fileInput.files.length > 0) {
+        fileName.textContent = fileInput.files[0].name;
+    } else {
+        fileName.textContent = "Nenhum arquivo selecionado";
+    }
+});
+</script>
 
 </body>
 </html>

@@ -33,6 +33,12 @@ def processar_entrada_email(request):
     texto = None
     mensagem = None
 
+    # Texto inserido manualmente e por arquivo pelo usuário
+    if request.form.get("email_text") and request.files.get("email_file"):
+        mensagem = "Por favor, insira sua mensagem manualmente ou por arquivo."
+        return None, mensagem
+    
+
     # Texto inserido manualmente pelo usuário
     if request.form.get("email_text"):
         texto = request.form.get("email_text")
