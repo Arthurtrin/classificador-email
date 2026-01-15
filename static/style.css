@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.header {
+    text-align: center;
+    color: #ffffff;
+}
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+.card {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+textarea,
+input[type="file"] {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+textarea:focus,
+input[type="file"]:focus {
+    outline: none;
+    border-color: #6366f1;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #6b7280;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e5e7eb;
+}
+
+.divider span {
+    margin: 0 12px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: #6366f1;
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #4f46e5;
+}
+
+.resultado {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.resultado h2 {
+    margin-top: 16px;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+.resposta {
+    color: #374151;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+/* Badge de categoria */
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.badge.produtivo {
+    background: #16a34a;
+}
+
+.badge.improdutivo {
+    background: #dc2626;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

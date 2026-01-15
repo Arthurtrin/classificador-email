@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- ===== Configurações básicas do documento ===== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título exibido na aba do navegador -->
+    <title>Classificador de Emails</title>
+
+    <!-- Importação do CSS estático via Flask -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+{# ===== Conteúdo principal da aplicação ===== #}
+<main class="container">
+
+    <!-- ===== Cabeçalho da página ===== -->
+    <header class="header">
+        <h1>📧 Classificador de Emails</h1>
+
+        <!-- Texto introdutório explicando a funcionalidade -->
+        <p class="subtitle">
+            Utilize inteligência artificial para classificar emails e gerar respostas automáticas.
+        </p>
+    </header>
+
+    <!-- ===== Formulário de envio do email ===== -->
+    <!-- Permite envio de texto manual ou arquivo (.txt / .pdf) -->
+    <form method="POST" enctype="multipart/form-data" class="card">
+
+        <!-- Campo para colar o texto do email -->
+        <div class="field">
+            <label for="email_text">Texto do email</label>
+            <textarea
+                id="email_text"
+                name="email_text"
+                placeholder="Cole aqui o conteúdo do email..."
+                rows="7"
+            ></textarea>
+        </div>
+
+        <!-- Separador visual entre opções de entrada -->
+        <div class="divider">
+            <span>ou</span>
+        </div>
+
+        <!-- Campo para envio de arquivo -->
+        <div class="field">
+            <label for="email_file">Enviar arquivo (.txt ou .pdf)</label>
+            <input
+                type="file"
+                id="email_file"
+                name="email_file"
+                accept=".txt,.pdf"
+            >
+        </div>
+
+        <!-- Botão de submissão do formulário -->
+        <button type="submit" class="btn-primary">
+            Analisar Email
+        </button>
+    </form>
+
+    {% if mensagem %}
+    <section class="resultado card">
+
+        <!-- Título da seção de resposta -->
+        <h2>Ocorreu um erro</h2>
+
+        <!-- Texto da resposta de erro -->
+        <p class="resposta">
+            {{ mensagem }}
+        </p>
+    </section>
+    {% endif %}
+
+    {# ===== Resultado da classificação ===== #}
+    {# Renderizado apenas se a variável 'categoria' existir #}
+    {% if categoria %}
+    <section class="resultado card">
+
+        <!-- Badge visual indicando a categoria do email -->
+        <div class="badge {{ categoria|lower }}">
+            {{ categoria }}
+        </div>
+
+        <!-- Título da seção de resposta -->
+        <h2>Resposta sugerida</h2>
+
+        <!-- Texto da resposta gerada pela IA -->
+        <p class="resposta">
+            {{ resposta }}
+        </p>
+    </section>
+    {% endif %}
+
+</main>
+
+</body>
+</html>
+
+
